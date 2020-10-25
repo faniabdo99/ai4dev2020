@@ -1,6 +1,5 @@
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TNG4G2L"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TNG4G2L" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <!--PreLoader-->
 <!-- <div class="loader">
@@ -13,12 +12,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <header class="site-header" id="header">
   <nav class="navbar navbar-expand-lg transparent-bg static-nav">
     <div class="container">
-      <a class="navbar-brand" href="/">AI4Dev 2020</a>
+      <a class="navbar-brand" href="/"><img src="images/ai4dev-logo.png" alt="logo" /></a>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav mx-auto ml-xl-auto mr-xl-0">
           <li class="nav-item"><a class="nav-link pagescroll desktop-nav-link" data-target="#hero-section" href="#hero-section">Home</a></li>
           <li class="nav-item"><a class="nav-link pagescroll desktop-nav-link" data-target="#about" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link pagescroll desktop-nav-link" data-target="#challange" href="#challange">Challange</a></li>
+          <li class="nav-item"><a class="nav-link pagescroll desktop-nav-link" data-target="#challange" href="#challenge">Challenge</a></li>
           <li class="nav-item"><a class="nav-link pagescroll desktop-nav-link" data-target="#partners" href="#partners">Partners</a></li>
           <li class="nav-item"><a class="nav-link pagescroll desktop-nav-link" data-target="#faqs" href="#faqs">FAQs</a></li>
         </ul>
@@ -41,7 +40,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link pagescroll" href="#hero-section">Home</a></li>
           <li class="nav-item"><a class="nav-link pagescroll" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link pagescroll" href="#challange">Challange</a></li>
+          <li class="nav-item"><a class="nav-link pagescroll" href="#challenge">Challenge</a></li>
           <li class="nav-item"><a class="nav-link pagescroll" href="#partners">Partners</a></li>
           <li class="nav-item"><a class="nav-link pagescroll" href="#faqs">FAQs</a></li>
           <li class="nav-item"><a class="nav-link" href="https:/google.com" target="_blank">Apply</a></li>
