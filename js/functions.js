@@ -291,49 +291,11 @@ $($ => {
   if (countDown.length) {
     countDown.downCount({
       // month / day / Year
-      date: '10/25/2020 14:00:00',
+      date: '11/28/2020 14:00:00',
       offset: +10
     });
   }
-  /* =====================================
-              CubePortfolio
-  ====================================== */
-  /*Gallery without spaces*/
-  $("#partners-grid-container").cubeportfolio({
-    filters: '#partners-grid-filter',
-    layoutMode: 'grid',
-    animationType: 'quicksand'
-  });
-  //Countdown to the end of apply time
-  function getTimeRemaining(endtime) {
-    const total = Date.parse(endtime) - Date.parse(new Date());
-    const seconds = Math.floor((total / 1000) % 60);
-    const minutes = Math.floor((total / 1000 / 60) % 60);
-    const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
-    const days = Math.floor(total / (1000 * 60 * 60 * 24));
-    return {total,days,hours,minutes,seconds};
-  }
-  function initializeClock(endtime) {
-    const clock = $('#countdown-timeout');
-    const daysSpan = $('#countdown-timeout .days');
-    const hoursSpan = $('#countdown-timeout .hours');
-    const minutesSpan = $('#countdown-timeout .minutes');
-    const secondsSpan = $('#countdown-timeout .seconds');
-    function updateClock() {
-      const t = getTimeRemaining(endtime);
-      daysSpan.html(t.days);
-      hoursSpan.html(('0' + t.hours).slice(-2));
-      minutesSpan.html(('0' + t.minutes).slice(-2));
-      secondsSpan.html(('0' + t.seconds).slice(-2));
-      if (t.total <= 0) {
-        clearInterval(timeinterval);
-      }
-    }
-    updateClock();
-    const timeinterval = setInterval(updateClock, 1000);
-  }
-  const deadline = new Date('2020-11-22T03:24:00');
-  initializeClock(deadline);
+
   //Goals Flip Cards
   $('.goal-flip-card').hover(function(){
     $(this).find('.extra-content').fadeIn();
@@ -342,12 +304,21 @@ $($ => {
   });
   //Video Popup
   $('.video-toggler').click(function(){
-    $('.video-popup').fadeIn().css('display' , 'flex');
-    $('body').css('overflow' , 'hidden');
+    //Plug the element in
+    $('body').append(`
+      <div class="video-popup justify-content-center align-items-center">
+          <span class="close-icon"><i class="fas fa-times"></i></span>
+          <div>
+            <h2 class="text-white text-center mb-4">Watch Our Video</h2>
+            <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FAI4Dev2020%2Fvideos%2F218041739773928%2F&show_text=false&width=560" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      `);
+    $('body').css('overflow-y' , 'hidden');
   });
-  $('.close-icon , .video-popup').click(function(){
-    $('.video-popup').fadeOut();
-    $('body').css('overflow' , 'scroll');
+  $(document).on( 'click', '.close-icon , .video-popup', function(e){
+    $('.video-popup').remove();
+    $('body').css('overflow-y' , 'scroll');
   });
   //Highlight the current section in navbar
   var AllNavLinks = $('.desktop-nav-link');
@@ -367,10 +338,46 @@ $($ => {
         CurrentNavItem.removeClass('active');
       }
     });
-
+    //Plug the Video in Based on Screen Size
+    if($(window).width() > 992){
+      $('#background-video').html(`
+        <video autoplay muted loop preload="auto" class="d-lg-block d-none lazy">
+          <source src="video/nile_video_desktop.mp4" type="video/mp4">
+        </video>
+      `);
+    }else{
+      $('#background-video').html(`
+        <video autoplay muted loop preload="auto" class="d-lg-none d-block lazy">
+          <source src="video/nile_video.mp4" type="video/mp4">
+        </video>
+      `);
+    }
   });
   //end of js
 
-
-
 });
+$("#testimonial-slider").owlCarousel({
+       items: 5,
+       autoplay: true,
+       autoplayHoverPause: false,
+       mouseDrag: false,
+       loop: true,
+       margin: 30,
+       autoplayTimeout:3500,
+       animateIn: "fadeIn",
+       animateOut: "fadeOut",
+       dots: false,
+       nav: true,
+       navText: ["<i class='fas fa-angle-left'></i>", "<i class='fas fa-angle-right'></i>"],
+       responsive: {
+           980: {
+               items: 1,
+           },
+           600: {
+               items: 1,
+           },
+           320: {
+               items: 1,
+           },
+       }
+   });
